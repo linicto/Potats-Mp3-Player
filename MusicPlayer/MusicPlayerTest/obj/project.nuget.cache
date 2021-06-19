@@ -1,10 +1,6 @@
 {
   "version": 2,
-<<<<<<< HEAD
-  "dgSpecHash": "2ddtO0N79V07W6lttaSXzUkM1ZZpciwpHQI4whI47BaCh6aHO+039c2P/5P04HeoUfry1R6hogLD8BFWZLTIgw==",
-=======
   "dgSpecHash": "T1xV2ZUZMBHcYe4Inlvf5IbvGF8hBiOmWjofuVi0RSRleQ+DznZu18iR4TN2rUwWYEw6YuVCaGtCe+Vz4M90Mg==",
->>>>>>> main_menu
   "success": true,
   "projectFilePath": "E:\\MyCode\\Potats-Mp3-Player\\MusicPlayer\\MusicPlayerTest\\MusicPlayerTest.csproj",
   "expectedPackageFiles": [
@@ -107,5 +103,12 @@
     "C:\\Users\\delia\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\delia\\.nuget\\packages\\taglibsharp\\2.2.0\\taglibsharp.2.2.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file E:\\MyCode\\Potats-Mp3-Player\\MusicPlayer\\MusicPlayerTest\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
