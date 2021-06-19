@@ -73,6 +73,7 @@ ipch/
 *.psess
 *.vsp
 *.vspx
+.vs/
 
 # TFS 2012 Local Workspace
 $tf/
@@ -190,3 +191,5 @@ git_stats/*
 StyleCop.Cache
 bin
 obj
+
+MusicPlayer/obj
