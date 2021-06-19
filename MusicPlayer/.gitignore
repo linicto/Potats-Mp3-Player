@@ -193,5 +193,5 @@ StyleCop.Cache
 bin
 obj
 
-MusicPlayer/obj
-MusicPlayer/.vs
+MusicPlayer/obj/
+MusicPlayer/.vs/
