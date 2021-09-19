@@ -1,3 +1,10 @@
 ﻿.vs/
 bin/
 obj/
+*.filters
+*.user
+x64/
+Debug/
+.vscode/
+*.exe
+packages/
