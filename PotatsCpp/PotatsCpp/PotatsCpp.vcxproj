@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -159,17 +159,28 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Album.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="IRepositoryController.h" />
+    <ClInclude Include="MusicCollectionRepository.h" />
+    <ClInclude Include="MusicFile.h" />
+    <ClInclude Include="MusicLoader.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="TagFilePlaceholder.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Album.cpp" />
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="MusicCollectionRepository.cpp" />
+    <ClCompile Include="MusicFile.cpp" />
+    <ClCompile Include="MusicLoader.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="TagFilePlaceholder.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
