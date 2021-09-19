@@ -17,3 +17,11 @@ BOOL APIENTRY DllMain( HMODULE hModule,
     return TRUE;
 }
 
+extern "C"             //No name mangling
+__declspec(dllexport)  //Tells the compiler to export the function
+int                    //Function return type     
+__cdecl                //Specifies calling convention, cdelc is default, 
+                       //so this can be omitted 
+    IncrementNumberOf1(int number) {
+    return number + 1;
+}

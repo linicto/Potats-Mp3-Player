@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using System.Windows.Controls;
 using MusicPlayer.Controller;
 
@@ -14,7 +15,18 @@ namespace MusicPlayer
         {
             InitializeComponent();
             SetupBackgroundWorker();
+
+            int value = CallIncrementNumberOf1FromCppDll(4);
+            Console.WriteLine($"found value {value} from 4.");
         }
+
+        [DllImport(@"..\..\..\..\PotatsCpp\x64\Release\PotatsCpp.dll", CallingConvention = CallingConvention.Cdecl)]
+        private extern static int IncrementNumberOf1(int number);
+        public static int CallIncrementNumberOf1FromCppDll(int number)
+        {
+            return IncrementNumberOf1(number);
+        }
+
 
         private void SetupBackgroundWorker()
         {
