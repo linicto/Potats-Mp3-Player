@@ -21,3 +21,9 @@ struct Album
 //Truly this, is more of an helper function. In C++ we can declare functions outside of a class.
 //This function makes more sense outside the struct Album than inside it.
 std::list<std::byte> CreateThumbnail(std::list<std::byte> PassedImage, int LargestSize);
+
+//Important! This is required for the Album struct to be used in a std::set.
+inline bool operator<(const Album& lhs, const Album& rhs)
+{
+    return lhs.Title < rhs.Title;
+}

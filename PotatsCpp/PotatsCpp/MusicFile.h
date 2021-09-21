@@ -13,13 +13,13 @@ struct MusicFile
     std::string AlbumTitle;
     std::string SongTitle;
     std::list<std::string> SongArtist;
-    std::chrono::time_point<std::chrono::system_clock> Year;
+    std::chrono::years Year;
     int Disk;
     int Track;
-    std::chrono::duration<std::chrono::system_clock> Duration;
+    std::chrono::seconds Duration;
 
     MusicFile(std::filesystem::path Path);
 
-    MusicFile(TagFilePlaceholder musicFile) //TODO find how to get file title etc... from std::filesystem
+    MusicFile(TagFilePlaceholder tagFile); //TODO find how to get file title etc... from std::filesystem
 };
 
