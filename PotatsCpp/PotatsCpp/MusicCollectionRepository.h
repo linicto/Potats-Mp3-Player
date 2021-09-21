@@ -15,7 +15,7 @@ private:
 public:
     MusicCollectionRepository();
 
-    void AddEntry(std::filesystem::path entry);
+    void AddEntry(std::filesystem::path entry) override;
 
     std::optional<Album> GetAlbumByTitle(std::string title);
 
