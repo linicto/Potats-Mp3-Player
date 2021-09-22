@@ -2,12 +2,12 @@
 #include "IRepositoryController.h"
 
 #include <filesystem>
-#include <list>
+#include <set>
 
 class SourceFileRepository : public IRepositoryController
 {
 private:
-    std::list<std::filesystem::path> sourceDirectories_;
+    std::set<std::filesystem::path> sourceDirectories_;
     std::filesystem::path filePath_;
 
 public:
@@ -16,6 +16,6 @@ public:
 
 private:
     void InitializeRepository();
-    std::list<std::filesystem::path> DeserializeSourceDirectories();
+    std::set<std::filesystem::path> DeserializeSourceDirectories();
 };
 
