@@ -3,6 +3,7 @@
 
 #include <filesystem>
 #include <set>
+#include <string>
 
 class SourceFileRepository : public IRepositoryController
 {
@@ -13,9 +14,11 @@ private:
 public:
     SourceFileRepository(std::filesystem::path filePath);
     void AddEntry(std::filesystem::path filePath);
+    void SaveFile();
 
 private:
     void InitializeRepository();
-    std::set<std::filesystem::path> DeserializeSourceDirectories();
+    void SerializeSourceDirectories();
+    void DeserializeSourceDirectories();
 };
 

@@ -3,6 +3,8 @@
 
 #include <fstream>
 #include <iterator>
+#include <ranges>
+#include <string_view>
 
 SourceFileRepository::SourceFileRepository(std::filesystem::path filePath)
     :filePath_(filePath)
@@ -19,24 +21,45 @@ void SourceFileRepository::InitializeRepository()
         output.close();
     }
 
-    sourceDirectories_ = DeserializeSourceDirectories();
+    DeserializeSourceDirectories();
 }
 
-std::set<std::filesystem::path> SourceFileRepository::DeserializeSourceDirectories()
+void SourceFileRepository::SerializeSourceDirectories()
+{
+    std::filesystem::create_directory(filePath_.parent_path());
+    std::ofstream output(filePath_);
+
+    auto writer = [&output](std::filesystem::path path) {output << path << '\n'; };
+
+    std::for_each(sourceDirectories_.begin(), sourceDirectories_.end(), writer);
+
+    output.close();
+}
+
+void SourceFileRepository::DeserializeSourceDirectories()
 {
     std::ifstream input(filePath_);
     std::string inputData(std::istreambuf_iterator<char>{input}, {});
 
-    std::set<std::filesystem::path> paths;
+    std::string_view allData(inputData);
 
-    std::filesystem::path path(inputData);
+    std::string_view delim{"\n"};
 
-    if (!path.empty())
+    auto processing = [this](const auto & view)
     {
-        paths.insert(path);
-    }
+        auto pathAsString = std::string_view(&*view.begin(), std::ranges::distance(view));
 
-    return paths;
+        std::filesystem::path path{pathAsString};
+
+        if (!path.empty())
+        {
+            sourceDirectories_.insert(path);
+        }
+    };
+
+    sourceDirectories_.clear();
+
+    std::ranges::for_each(allData | std::views::split(delim), processing);
 }
 
 void SourceFileRepository::AddEntry(std::filesystem::path filePath)
@@ -45,4 +68,9 @@ void SourceFileRepository::AddEntry(std::filesystem::path filePath)
     {
         sourceDirectories_.insert(filePath);
     }
+}
+
+void SourceFileRepository::SaveFile()
+{
+    SerializeSourceDirectories();
 }
