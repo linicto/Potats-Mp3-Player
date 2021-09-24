@@ -3,11 +3,11 @@
 #include "SourceFileRepository.h"
 #include "MusicCollectionRepository.h"
 
-struct RepositoryController
+struct RepositoryController//this was originally a class, but since I had no use for a class in this rewrite, I used a struct
 {
 public:
     SourceFileRepository sourceFileRepository_;
-    MusicCollectionRepository musicCollectionRepository_;
+    MusicCollectionRepository musicCollectionRepository_;//these two attributes originally had a getter, but since it's a fast rewrite, I decided to skip the getter and use them directly.
 
 public:
     static RepositoryController& getInstance();
