@@ -164,8 +164,10 @@
     <ClInclude Include="IRepositoryController.h" />
     <ClInclude Include="MusicCollectionRepository.h" />
     <ClInclude Include="MusicFile.h" />
+    <ClInclude Include="MusicFileExtractor.h" />
     <ClInclude Include="MusicLoader.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="RepositoryController.h" />
     <ClInclude Include="SourceFileRepository.h" />
     <ClInclude Include="TagFilePlaceholder.h" />
   </ItemGroup>
@@ -174,6 +176,7 @@
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="MusicCollectionRepository.cpp" />
     <ClCompile Include="MusicFile.cpp" />
+    <ClCompile Include="MusicFileExtractor.cpp" />
     <ClCompile Include="MusicLoader.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -181,6 +184,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="RepositoryController.cpp" />
     <ClCompile Include="SourceFileRepository.cpp" />
     <ClCompile Include="TagFilePlaceholder.cpp" />
   </ItemGroup>

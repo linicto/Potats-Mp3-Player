@@ -1,7 +1,11 @@
 #pragma once
-class MusicLoader
-{
-public:
 
+#include "MusicCollectionRepository.h"
+
+struct MusicLoader
+{
+    MusicCollectionRepository musicCollectionRepository_;
+
+    void BuildMusicCollection();
 };
 
