@@ -2,6 +2,7 @@
 
 #include <filesystem>
 #include <list>
+#include <set>
 #include <string>
 
 #include "SourceFileRepository.h"
@@ -14,12 +15,11 @@ private:
     std::list<std::string> acceptedFileExtensions_;
 
 public:
-    std::list<std::filesystem::path> getAllMusicFiles();
+    MusicFileExtractor();
+    std::set<std::filesystem::path> getAllMusicFiles();
 
 private:
-    std::list<std::filesystem::path> buildAListOfPotentialFoldersWithMusic();
-    std::list<std::filesystem::path> extractMusicFiles();
-    std::list<std::filesystem::path> getAllSubDirectories(std::filesystem::path directory);
-    std::list<std::filesystem::path> getAllSupportedFiles(std::filesystem::path directory);
+    std::set<std::filesystem::path> buildAListOfPotentialDirectoriesWithMusic();
+    std::set<std::filesystem::path> extractMusicFiles(std::set<std::filesystem::path> directories);
 };
 

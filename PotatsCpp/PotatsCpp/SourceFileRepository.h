@@ -7,8 +7,10 @@
 
 class SourceFileRepository : public IRepositoryController
 {
-private:
+public:
     std::set<std::filesystem::path> sourceDirectories_;
+
+private:
     std::filesystem::path filePath_;
 
 public:
