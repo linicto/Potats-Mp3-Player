@@ -25,7 +25,7 @@ void MusicCollectionRepository::AddEntry(std::filesystem::path entry)
 
     if (!album.has_value())
     {
-        album.value() = InitializeNewAlbum(TagFilePlaceholder());
+        album = InitializeNewAlbum(TagFilePlaceholder());
     }
 
     album->SongList.push_back(musicFile);

@@ -44,7 +44,8 @@ std::set<std::filesystem::path> getAllSupportedFiles(std::filesystem::path direc
 
         if (entry.is_regular_file() && mp3Position != std::string::npos) {
             foundFiles.insert(entry);
-
+        }
+        else if(entry.is_directory()) {
             auto foundFiles = getAllSupportedFiles(entry);
             foundFiles.insert(foundFiles.begin(), foundFiles.end());
         }
@@ -76,6 +77,8 @@ std::set<std::filesystem::path> MusicFileExtractor::buildAListOfPotentialDirecto
         directoriesThatMayContainMusic.insert(directory);
 
         auto subDirectories = getAllSubDirectories(directory);
+
+        directoriesThatMayContainMusic.insert(subDirectories.begin(), subDirectories.end());
     }
 
     return directoriesThatMayContainMusic;
