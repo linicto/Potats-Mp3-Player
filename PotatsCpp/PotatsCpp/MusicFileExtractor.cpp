@@ -77,15 +77,19 @@ std::set<std::filesystem::path> MusicFileExtractor::buildAListOfPotentialDirecto
 
         auto subDirectories = getAllSubDirectories(directory);
     }
+
+    return directoriesThatMayContainMusic;
 }
 
 std::set<std::filesystem::path> MusicFileExtractor::extractMusicFiles(std::set<std::filesystem::path> directories)
 {
     std::set<std::filesystem::path> musicFilesPaths;
+
     for (const auto& directory : directories)
     {
         auto musicFilesPathsInDirectory = getAllSupportedFiles(directory);
         musicFilesPaths.insert(musicFilesPathsInDirectory.begin(), musicFilesPathsInDirectory.end());
     }
+
     return musicFilesPaths;
 }

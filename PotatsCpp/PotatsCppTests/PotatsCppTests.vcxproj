@@ -33,9 +33,26 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
   <ItemGroup>
+    <ClInclude Include="..\PotatsCpp\Album.h" />
+    <ClInclude Include="..\PotatsCpp\IRepositoryController.h" />
+    <ClInclude Include="..\PotatsCpp\MusicCollectionRepository.h" />
+    <ClInclude Include="..\PotatsCpp\MusicFile.h" />
+    <ClInclude Include="..\PotatsCpp\MusicFileExtractor.h" />
+    <ClInclude Include="..\PotatsCpp\MusicLoader.h" />
+    <ClInclude Include="..\PotatsCpp\RepositoryController.h" />
+    <ClInclude Include="..\PotatsCpp\SourceFileRepository.h" />
+    <ClInclude Include="..\PotatsCpp\TagFilePlaceholder.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\PotatsCpp\Album.cpp" />
+    <ClCompile Include="..\PotatsCpp\MusicCollectionRepository.cpp" />
+    <ClCompile Include="..\PotatsCpp\MusicFile.cpp" />
+    <ClCompile Include="..\PotatsCpp\MusicFileExtractor.cpp" />
+    <ClCompile Include="..\PotatsCpp\MusicLoader.cpp" />
+    <ClCompile Include="..\PotatsCpp\RepositoryController.cpp" />
+    <ClCompile Include="..\PotatsCpp\SourceFileRepository.cpp" />
+    <ClCompile Include="..\PotatsCpp\TagFilePlaceholder.cpp" />
     <ClCompile Include="test.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -76,6 +93,8 @@
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -106,6 +125,8 @@
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
