@@ -3,16 +3,13 @@
 
 using namespace std;
 
-MusicFile::MusicFile(filesystem::path Path)
+MusicFile::MusicFile(filesystem::path path)
+    :Path{path},
+    SongTitle{path.filename().string()},
+    AlbumTitle{path.parent_path().filename().string()}
 {
-    this->Path = Path;
-}
-
-MusicFile::MusicFile(TagFilePlaceholder tagFile)
-{
-    Path = tagFile.Name;
-    AlbumTitle = tagFile.AlbumTitle;
-    SongTitle = tagFile.Title;
+    //TODO find how to get song information from mp3 metadata from ... filesystem maybe?
+    auto tagFile = TagFilePlaceholder();
     SongArtist = tagFile.Artists;
     Year = tagFile.Year;
     Disk = tagFile.Disk;

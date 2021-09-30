@@ -1,10 +1,10 @@
 #include "pch.h"
 #include "Album.h"
 
-Album::Album(TagFilePlaceholder tagFile)
-    :SongList{ std::filesystem::path{"E:\\Temp\\"} }
+Album::Album(std::filesystem::path mp3FileEntry)
+    :Title{ mp3FileEntry.parent_path().filename().string()}
 {
-    Title = tagFile.Title;
+    auto tagFile = TagFilePlaceholder();
     Artits = tagFile.Artists;
     Genre = tagFile.Genres;
     Cover = tagFile.Cover;

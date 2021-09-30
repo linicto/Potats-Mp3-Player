@@ -7,41 +7,30 @@ MusicCollectionRepository::MusicCollectionRepository()
     :albumCollection_()
 {}
 
-/*void MusicCollectionRepository::CreateNewRepository()
+void MusicCollectionRepository::AddEntry(std::filesystem::path mp3FilePath)
 {
-    albumCollection_ = std::set<Album>();
-    //Important! another way to do this would be to empty the set with the following
-    //albumCollection_.clear();
-}*/
+    auto musicFile = MusicFile(mp3FilePath);
 
-void MusicCollectionRepository::AddEntry(std::filesystem::path entry)
-{
-    //TODO find a way to replace the TagFilePlaceholder and to read the actual file.
-    auto tagFile = TagFilePlaceholder();
-
-    auto musicFile = MusicFile(tagFile);
-
-    auto album = GetAlbumByTitle(tagFile.Title);
+    auto album = GetAlbumByTitle(musicFile.AlbumTitle);
 
     if (!album.has_value())
     {
-        album = InitializeNewAlbum(TagFilePlaceholder());
+        InitializeNewAlbum(mp3FilePath);
     }
-
-    album->SongList.push_back(musicFile);
+    else
+    {
+        album.value().get().SongList.push_back(musicFile);
+        albumCollection_.insert_or_assign(album.value().get().Title, album.value());
+    }
 }
 
-std::optional<Album> MusicCollectionRepository::GetAlbumByTitle(std::string title)
+std::optional<std::reference_wrapper<Album>> MusicCollectionRepository::GetAlbumByTitle(std::string title)
 {
-    std::optional<Album> album;
+    std::optional<std::reference_wrapper<Album>> album;
 
-    auto has_same_title = [title](Album album) {return album.Title == title; };
-
-    auto foundValue = std::find_if(begin(albumCollection_), end(albumCollection_), has_same_title);
-
-    if (foundValue != std::end(albumCollection_))
+    if (albumCollection_.contains(title))
     {
-        return std::optional{ *foundValue };
+        return std::optional{ std::reference_wrapper<Album>{albumCollection_.at(title) } };
     }
 
     return std::nullopt;
@@ -49,17 +38,20 @@ std::optional<Album> MusicCollectionRepository::GetAlbumByTitle(std::string titl
 
 MusicFile MusicCollectionRepository::ConvertToMusicFile(std::filesystem::path musicPath)
 {
-    return MusicFile(TagFilePlaceholder());
+    return MusicFile(musicPath);
 }
 
-const std::set<Album>& MusicCollectionRepository::GetReadonlyAlbumCollection() const
+const std::map<std::string, Album>& MusicCollectionRepository::GetReadonlyAlbumCollection() const
 {
     return albumCollection_;
 }
 
-Album MusicCollectionRepository::InitializeNewAlbum(TagFilePlaceholder tagFile)
+void MusicCollectionRepository::InitializeNewAlbum(std::filesystem::path mp3FilePath)
 {
-    auto album = Album(tagFile);
-    albumCollection_.insert(album);
-    return album;
+    auto album = Album(mp3FilePath);
+    auto musicFile = MusicFile(mp3FilePath);
+
+    album.SongList.push_back(musicFile);
+
+    albumCollection_.insert_or_assign(album.Title, album);
 }

@@ -14,7 +14,7 @@ struct Album
     std::list<std::string> Genre;
     std::list<std::byte> Cover;
 
-    Album(TagFilePlaceholder tagFile);
+    Album(std::filesystem::path mp3FileEntry);
 };
 
 //In C#, this function was a static method within a class.

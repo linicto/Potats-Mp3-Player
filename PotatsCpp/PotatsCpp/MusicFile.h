@@ -18,8 +18,6 @@ struct MusicFile
     int Track;
     std::chrono::seconds Duration;
 
-    MusicFile(std::filesystem::path Path);
-
-    MusicFile(TagFilePlaceholder tagFile); //TODO find how to get file title etc... from std::filesystem
+    MusicFile(std::filesystem::path path);
 };
 
