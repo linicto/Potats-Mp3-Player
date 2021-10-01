@@ -66,10 +66,20 @@ TEST(Tests_PotatsCpp, GivenAPotatsCpp_WhenLoadingTheDll_ThenExternFunctionsCanBe
     EXPECT_TRUE(handleToDll != nullptr);
 
     auto loadedFunction1 = (int (*)(int))GetProcAddress(handleToDll, "IncrementNumberOf1");
-
     EXPECT_TRUE(loadedFunction1 != nullptr);
 
     auto loadedFunction2 = (std::list<std::string>(*)())GetProcAddress(handleToDll, "GetListOfAlbums");
-
     EXPECT_TRUE(loadedFunction2 != nullptr);
+
+    std::ofstream insertTestSourcePathsInSourceFileTxt(".\\sourceFileRepository\\sourceFile.txt");
+    insertTestSourcePathsInSourceFileTxt << "..\\..\\PotatsCppTests\\TestFolderWithFilesEndingWithMp3\\";
+    insertTestSourcePathsInSourceFileTxt.close();
+
+    auto listOfAlbums = loadedFunction2();
+
+    EXPECT_EQ(listOfAlbums.size(), 1);
+
+    for (auto const& albumTitle : listOfAlbums) {
+        EXPECT_GT(albumTitle.size(), 0);
+    }
 }
