@@ -1,5 +1,22 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
+        <file>../MusicPlayer/MusicPlayer/Assets/Add.png</file>
+        <file>../MusicPlayer/MusicPlayer/Assets/Delete.png</file>
+        <file>../MusicPlayer/MusicPlayer/Assets/Next - Disabled.png</file>
+        <file>../MusicPlayer/MusicPlayer/Assets/Next.png</file>
+        <file>../MusicPlayer/MusicPlayer/Assets/WelcomeBackground.png</file>
+        <file>../MusicPlayer/MusicPlayer/Assets/WelcomePotat.png</file>
+        <file>AddMusicSourceButton.qml</file>
+        <file>ApplicationFlow.qml</file>
+        <file>ApplicationFlowForm.ui.qml</file>
+        <file>Background.qml</file>
+        <file>LoadingPage.qml</file>
+        <file>LoadingPageForm.ui.qml</file>
+        <file>PotatsMascot.qml</file>
+        <file>SelectMusicSourcePage.qml</file>
+        <file>SelectMusicSourcePageForm.ui.qml</file>
+        <file>TitlePage.qml</file>
+        <file>TitlePageForm.ui.qml</file>
     </qresource>
 </RCC>
