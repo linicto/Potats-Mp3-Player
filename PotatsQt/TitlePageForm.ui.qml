@@ -7,7 +7,8 @@ Item {
 
     Text {
         x: 70
-        y: 5
+        anchors.fill: parent
+        horizontalAlignment: Text.AlignHCenter
         color: "#f4cb2a"
         text: qsTr("Potat's Music Player")
         font.pointSize: 90

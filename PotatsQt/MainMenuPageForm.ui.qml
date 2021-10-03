@@ -10,17 +10,21 @@ Item {
         anchors.fill: parent
         horizontalAlignment: Text.AlignHCenter
         color: "#f4cb2a"
-        text: qsTr("Where is your music located?")
+        text: qsTr("Settings")
         font.pointSize: 60
         z: 2
         styleColor: "#e4b62d"
     }
 
-    AddMusicSourceButton {
-        scale: 0.10
-        x: 65
-        y: 150
-        z: 1
+    Text {
+        anchors.fill: parent
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignBottom
+        color: "#f4cb2a"
+        text: qsTr("Song Bar")
+        font.pointSize: 60
+        z: 2
+        styleColor: "#e4b62d"
     }
 
     Background {

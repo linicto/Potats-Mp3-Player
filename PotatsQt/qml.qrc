@@ -18,5 +18,7 @@
         <file>SelectMusicSourcePageForm.ui.qml</file>
         <file>TitlePage.qml</file>
         <file>TitlePageForm.ui.qml</file>
+        <file>MainMenuPage.qml</file>
+        <file>MainMenuPageForm.ui.qml</file>
     </qresource>
 </RCC>

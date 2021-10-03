@@ -7,7 +7,8 @@ Item {
 
     Text {
         x: 400
-        y: 5
+        anchors.fill: parent
+        horizontalAlignment: Text.AlignHCenter
         color: "#f4cb2a"
         text: qsTr("Loading")
         font.pointSize: 90

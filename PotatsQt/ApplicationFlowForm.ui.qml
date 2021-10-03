@@ -18,6 +18,10 @@ Item {
         id: selectMusicSourcePage
     }
 
+    MainMenuPage {
+        id: mainMenuPage
+    }
+
     states: [
         State {
             name: "titlePage"
@@ -31,6 +35,10 @@ Item {
             }
             PropertyChanges {
                 target: selectMusicSourcePage
+                visible: false
+            }
+            PropertyChanges {
+                target: mainMenuPage
                 visible: false
             }
         },
@@ -48,6 +56,10 @@ Item {
                 target: selectMusicSourcePage
                 visible: false
             }
+            PropertyChanges {
+                target: mainMenuPage
+                visible: false
+            }
         },
         State {
             name: "selectingMusicSourcePage"
@@ -61,6 +73,29 @@ Item {
             }
             PropertyChanges {
                 target: selectMusicSourcePage
+                visible: true
+            }
+            PropertyChanges {
+                target: mainMenuPage
+                visible: false
+            }
+        },
+        State {
+            name: "mainMenuPage"
+            PropertyChanges {
+                target: titlePage
+                visible: false
+            }
+            PropertyChanges {
+                target: loadingPage
+                visible: false
+            }
+            PropertyChanges {
+                target: selectMusicSourcePage
+                visible: false
+            }
+            PropertyChanges {
+                target: mainMenuPage
                 visible: true
             }
         }

@@ -40,5 +40,15 @@ ApplicationFlowForm {
         PauseAnimation {
             duration: applicationFlow.animationDuration
         }
+
+        PropertyAction {
+            targets: applicationFlow
+            properties: "state"
+            value: "mainMenuPage"
+        }
+
+        PauseAnimation {
+            duration: applicationFlow.animationDuration
+        }
     }
 }
