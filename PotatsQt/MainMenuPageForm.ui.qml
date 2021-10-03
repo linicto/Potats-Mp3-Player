@@ -27,6 +27,14 @@ Item {
         styleColor: "#e4b62d"
     }
 
+    AlbumButton {
+        anchors.fill: parent
+        verticalAlignment: Image.AlignVCenter
+        sourceSize.width: 260
+        fillMode: Image.Pad
+
+    }
+
     Background {
         z: -1
     }
