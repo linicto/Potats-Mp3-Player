@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
     auto listOfAlbums = loadedFunction2();
 
     for(auto const& albumTitle : listOfAlbums){
-        qDebug() << "size of album title : " << albumTitle.size() << '\n';
+        qDebug() << "size of album title : " << &albumTitle[0] << '\n';//&albumTitle[0] means that we refer to the string like if it is a char array to avoid the ambiguous issue of using string with qDebug
     }
     //end loading
 
