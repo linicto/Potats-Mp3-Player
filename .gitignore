@@ -8,3 +8,4 @@ Debug/
 .vscode/
 *.exe
 packages/
+build*Debug/
