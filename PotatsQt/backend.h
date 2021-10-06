@@ -8,20 +8,20 @@
 class BackEnd : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(QString albumTitle READ albumTitle NOTIFY albumTitleChanged)
+    Q_PROPERTY(QString userName READ userName WRITE setUserName NOTIFY userNameChanged)
     QML_ELEMENT
 
 public:
     explicit BackEnd(QObject *parent = nullptr);
 
-    QString albumTitle();
+    QString userName();
+    void setUserName(const QString &userName);
 
 signals:
-    void albumTitleChanged();
+    void userNameChanged();
 
 private:
-    QString albumTitle_;
-
+    QString m_userName;
 };
 
 #endif // BACKEND_H

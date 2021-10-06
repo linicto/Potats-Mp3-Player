@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import cplusplus.backendlib 1.0
 
 Image {
     id: root
@@ -9,4 +10,6 @@ Image {
         anchors.fill: parent
         onClicked:  root.clicked()
     }
+
+    BackEnd { }
 }

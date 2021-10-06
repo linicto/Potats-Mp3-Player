@@ -1,11 +1,21 @@
 #include "backend.h"
 
-BackEnd::BackEnd(QObject *parent) : QObject(parent)
+BackEnd::BackEnd(QObject *parent) :
+    QObject(parent)
 {
-    albumTitle_ = "N'importe quoi";
+    m_userName = "test-default-user";
 }
 
-QString BackEnd::albumTitle()
+QString BackEnd::userName()
 {
-    return albumTitle_;
+    return m_userName;
+}
+
+void BackEnd::setUserName(const QString &userName)
+{
+    if (userName == m_userName)
+        return;
+
+    m_userName = userName;
+    emit userNameChanged();
 }
