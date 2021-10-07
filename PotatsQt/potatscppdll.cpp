@@ -31,6 +31,11 @@ PotatsCppDll::PotatsCppDll(QObject *parent) : QObject(parent)
     for(auto const& albumTitle : listOfAlbums){
         qDebug() << "size of album title : " << &albumTitle[0] << '\n';//&albumTitle[0] means that we refer to the string like if it is a char array to avoid the ambiguous issue of using string with qDebug
     }
+
+    auto getCurrentPath = (std::string (*)())GetProcAddress(potatsCppHandle, "GetCurrentPath");
+    auto path = getCurrentPath();
+    qDebug() << QString::fromStdString(path);
+
     //end loading
 
     albumTitles_.push_back("hello album 1");
