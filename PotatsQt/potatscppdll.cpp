@@ -38,7 +38,9 @@ PotatsCppDll::PotatsCppDll(QObject *parent) : QObject(parent)
 
     //end loading
 
+    //inserting fake albums manually as we can't load them yet correctly with potats cpp dll
     albumTitles_.push_back("hello album 1");
+    albumTitles_.push_back("hello album 2");
 }
 
 QList<QString> PotatsCppDll::albumTitles(){

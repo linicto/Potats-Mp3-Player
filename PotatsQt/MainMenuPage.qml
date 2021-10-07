@@ -1,4 +1,6 @@
 import QtQuick 2.4
+import QtQuick.Controls
+import cplusplus.potatscpp
 
 MainMenuPageForm {
     id: mainMenu
@@ -8,11 +10,14 @@ MainMenuPageForm {
         AlbumButton { }
     }
 
-    /*function addAlbum() {
-        var album = albumButton.createObject(mainMenu, {"width": 50, "height": 80, "x": 50, "y": 50})
-        var album2 = albumButton.createObject(mainMenu, {"width": 50, "height": 80, "x": 100, "y": 50})
-        var album3 = albumButton.createObject(mainMenu, {"width": 50, "height": 80, "x": 150, "y": 50})
-    }*/
+    PotatsCppDll{
+        id: potatsCpp
+    }
+
+    TextField {
+        text: potatsCpp.albumTitles
+        placeholderText: qsTr("albumTitles")
+    }
 
     Loader {
         sourceComponent: albumButton

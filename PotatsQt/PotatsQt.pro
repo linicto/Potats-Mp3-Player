@@ -3,7 +3,6 @@ QT += quick
 CONFIG += c++20
 
 SOURCES += \
-        backend.cpp \
         main.cpp \
         potatscppdll.cpp
 
@@ -18,7 +17,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-    backend.h \
     potatscppdll.h
 
 CONFIG += qmltypes
