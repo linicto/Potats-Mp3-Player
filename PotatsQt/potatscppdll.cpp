@@ -32,4 +32,10 @@ PotatsCppDll::PotatsCppDll(QObject *parent) : QObject(parent)
         qDebug() << "size of album title : " << &albumTitle[0] << '\n';//&albumTitle[0] means that we refer to the string like if it is a char array to avoid the ambiguous issue of using string with qDebug
     }
     //end loading
+
+    albumTitles_.push_back("hello album 1");
+}
+
+QList<QString> PotatsCppDll::albumTitles(){
+    return albumTitles_;
 }

@@ -13,7 +13,14 @@ Window {
 
     }
 
-    PotatsCppDll{}
+    PotatsCppDll{
+        id: potatsCpp
+    }
+
+    TextField {
+        text: potatsCpp.albumTitles
+        placeholderText: qsTr("albumTitles")
+    }
 
     BackEnd {
         id: backend
