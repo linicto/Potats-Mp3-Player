@@ -1,7 +1,7 @@
 import QtQuick
 import QtQuick.Window
 import QtQuick.Controls
-import io.qt.examples.backend
+import cplusplus.potatscpp
 
 Window {
     width: 1200
@@ -12,6 +12,8 @@ Window {
     ApplicationFlow{
 
     }
+
+    PotatsCppDll{}
 
     BackEnd {
         id: backend

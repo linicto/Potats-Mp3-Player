@@ -4,7 +4,8 @@ CONFIG += c++20
 
 SOURCES += \
         backend.cpp \
-        main.cpp
+        main.cpp \
+        potatscppdll.cpp
 
 RESOURCES += qml.qrc
 
@@ -17,8 +18,9 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-    backend.h
+    backend.h \
+    potatscppdll.h
 
 CONFIG += qmltypes
-QML_IMPORT_NAME = io.qt.examples.backend
+QML_IMPORT_NAME = cplusplus.potatscpp
 QML_IMPORT_MAJOR_VERSION = 1
