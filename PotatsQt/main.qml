@@ -9,9 +9,13 @@ Window {
     visible: true
     title: qsTr("Potat's Music Player C++")
 
-    /*ApplicationFlow{
+    ApplicationFlow{
 
-    }*/
+    }
+
+    BackEnd {
+        id: backend
+    }
 
     TextField {
         text: backend.userName
