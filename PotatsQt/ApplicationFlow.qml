@@ -4,12 +4,12 @@ ApplicationFlowForm {
     id: applicationFlow
     state: "titlePage"
 
-    property int animationDuration: 1000
+    property int animationDuration: 100
 
     SequentialAnimation {
         id: animateBetweemTitleAndLoading
         running: true
-        loops: Animation.Infinite
+        loops: 1//Animation.Infinite
 
         PropertyAction {
             targets: applicationFlow

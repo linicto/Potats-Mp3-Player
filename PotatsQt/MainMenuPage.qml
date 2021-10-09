@@ -19,6 +19,19 @@ MainMenuPageForm {
         placeholderText: qsTr("albumTitles")
     }
 
+    ListView{
+        anchors.fill: parent
+        model: potatsCpp.albumTitles
+        delegate: Rectangle {
+            required property string modelData
+            height: 25
+            width: 100
+            Text {
+                text: parent.modelData
+            }
+        }
+    }
+
     Loader {
         sourceComponent: albumButton
     }
