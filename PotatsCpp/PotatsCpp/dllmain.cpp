@@ -5,6 +5,7 @@
 
 #include <list>
 #include <string>
+#include <filesystem>
 
 BOOL APIENTRY DllMain( HMODULE hModule,
                        DWORD  ul_reason_for_call,
@@ -47,4 +48,12 @@ GetListOfAlbums() {
     }
 
     return listOfAlbums;
+}
+
+extern "C"
+__declspec(dllexport)
+std::string
+__cdecl
+GetCurrentPath() {
+    return std::filesystem::current_path().string();
 }

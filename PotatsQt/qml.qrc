@@ -20,5 +20,6 @@
         <file>TitlePageForm.ui.qml</file>
         <file>MainMenuPage.qml</file>
         <file>MainMenuPageForm.ui.qml</file>
+        <file>AlbumButton.qml</file>
     </qresource>
 </RCC>
