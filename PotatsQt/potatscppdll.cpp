@@ -25,6 +25,9 @@ PotatsCppDll::PotatsCppDll(QObject *parent) : QObject(parent)
     auto loadedFunction2 = (std::list<std::string> (*)())GetProcAddress(potatsCppHandle, "GetListOfAlbums");
 
     auto listOfAlbums = loadedFunction2();
+    listOfAlbums = loadedFunction2();
+    listOfAlbums = loadedFunction2();
+    listOfAlbums = loadedFunction2();
 
     qDebug() << "size of list of alubms : " << listOfAlbums.size() << '\n';
 

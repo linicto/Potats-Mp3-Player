@@ -28,21 +28,34 @@ void init_logging() {
     boost::log::add_common_attributes();//adds TimeStamp, ThreadID to the attributes that will be printed in the file.txt
 }
 
+bool logging_initiated = false;
+
 BOOL APIENTRY DllMain( HMODULE hModule,
                        DWORD  ul_reason_for_call,
                        LPVOID lpReserved
                      )
 {
-    init_logging();
-
-    BOOST_LOG_TRIVIAL(trace) << "dll main started, logging initialized";
+    if (logging_initiated == false)
+    {
+        init_logging();
+        logging_initiated = true;
+        BOOST_LOG_TRIVIAL(trace) << "logging initialized";
+        BOOST_LOG_TRIVIAL(trace) << "current path : " << std::filesystem::current_path();
+    }
 
     switch (ul_reason_for_call)
     {
     case DLL_PROCESS_ATTACH:
+        BOOST_LOG_TRIVIAL(trace) << "dll main - process attach";
+        break;
     case DLL_THREAD_ATTACH:
+        BOOST_LOG_TRIVIAL(trace) << "dll main - thread attach";
+        break;
     case DLL_THREAD_DETACH:
+        BOOST_LOG_TRIVIAL(trace) << "dll main - thread dettach";
+        break;
     case DLL_PROCESS_DETACH:
+        BOOST_LOG_TRIVIAL(trace) << "dll main - process dettach";
         break;
     }
     return TRUE;

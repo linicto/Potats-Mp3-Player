@@ -3,6 +3,8 @@
 
 #include "RepositoryController.h"
 
+#include <boost/log/trivial.hpp>
+
 /// <summary>
 /// Function to get all sub directories of a directory to scan.
 /// Warning! I'm not checking I really get a directory to scan!
@@ -12,6 +14,8 @@
 /// <returns>the set of all sub directories</returns>
 std::set<std::filesystem::path> getAllSubDirectories(std::filesystem::path directoryToScan)
 {
+    BOOST_LOG_TRIVIAL(trace) << "getAllSubDirectories : " << directoryToScan;
+
     std::set<std::filesystem::path> foundDirectories;
 
     for (const auto& entry : std::filesystem::directory_iterator(directoryToScan))

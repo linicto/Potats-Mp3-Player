@@ -4,7 +4,7 @@ ApplicationFlowForm {
     id: applicationFlow
     state: "titlePage"
 
-    property int animationDuration: 100
+    property int animationDuration: 1000
 
     SequentialAnimation {
         id: animateBetweemTitleAndLoading
