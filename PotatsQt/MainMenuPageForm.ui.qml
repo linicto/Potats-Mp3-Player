@@ -34,6 +34,7 @@ Item {
         color: "#00ffffff"
         width: 1000
         ListView {
+            //TODO: this doesn't show more than 4 albums
             anchors.fill: parent
             spacing: 25
             model: potatsCpp.albumTitles

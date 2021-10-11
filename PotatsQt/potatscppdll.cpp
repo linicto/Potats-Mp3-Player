@@ -32,7 +32,8 @@ PotatsCppDll::PotatsCppDll(QObject *parent) : QObject(parent)
     qDebug() << "size of list of alubms : " << listOfAlbums.size() << '\n';
 
     for(auto const& albumTitle : listOfAlbums){
-        qDebug() << "size of album title : " << &albumTitle[0] << '\n';//&albumTitle[0] means that we refer to the string like if it is a char array to avoid the ambiguous issue of using string with qDebug
+        qDebug() << "album title : " << &albumTitle[0] << '\n';//&albumTitle[0] means that we refer to the string like if it is a char array to avoid the ambiguous issue of using string with qDebug
+        albumTitles_.push_back(&albumTitle[0]);
     }
 
     auto getCurrentPath = (std::string (*)())GetProcAddress(potatsCppHandle, "GetCurrentPath");
@@ -40,11 +41,6 @@ PotatsCppDll::PotatsCppDll(QObject *parent) : QObject(parent)
     qDebug() << QString::fromStdString(path);
 
     //end loading
-
-    //inserting fake albums manually as we can't load them yet correctly with potats cpp dll
-    albumTitles_.push_back("hello album 1");
-    albumTitles_.push_back("hello album 2");
-    albumTitles_.push_back("hello album 3");
 }
 
 QList<QString> PotatsCppDll::albumTitles(){
