@@ -7,11 +7,36 @@
 #include <string>
 #include <filesystem>
 
+#include <boost/log/core.hpp>
+#include <boost/log/trivial.hpp>
+#include <boost/log/expressions.hpp>
+#include <boost/log/utility/setup/file.hpp>
+#include <boost/log/utility/setup/common_attributes.hpp>
+
+void init_logging() {
+    boost::log::register_simple_formatter_factory<boost::log::trivial::severity_level, char>("Severity");//Severity needs to be registered manually here if we want to see it in the log file.
+
+    boost::log::add_file_log(
+        boost::log::keywords::file_name = "PotatsCpp.dll.txt",
+        boost::log::keywords::format = "[%LineID%] [%TimeStamp%] [%ProcessID%] [%ThreadID%] [%Severity%] %Message%"
+    );
+
+    boost::log::core::get()->set_filter(
+        boost::log::trivial::severity >= boost::log::trivial::trace
+    );
+
+    boost::log::add_common_attributes();//adds TimeStamp, ThreadID to the attributes that will be printed in the file.txt
+}
+
 BOOL APIENTRY DllMain( HMODULE hModule,
                        DWORD  ul_reason_for_call,
                        LPVOID lpReserved
                      )
 {
+    init_logging();
+
+    BOOST_LOG_TRIVIAL(trace) << "dll main started, logging initialized";
+
     switch (ul_reason_for_call)
     {
     case DLL_PROCESS_ATTACH:
@@ -37,6 +62,9 @@ __declspec(dllexport)
 std::list<std::string>
 __cdecl
 GetListOfAlbums() {
+
+    BOOST_LOG_TRIVIAL(trace) << "extern C GetListOfAlbums called";
+
     MusicLoader musicLoader;
     musicLoader.BuildMusicCollection();
     auto map = musicLoader.musicCollectionRepository_.GetReadonlyAlbumCollection();
